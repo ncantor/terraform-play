@@ -2,7 +2,7 @@
 
 Basic terraform project to create an Ubuntu 16.04 server, and add some simple configuration. Built on AWS. This configuration creates a simple firewall entry to allow SSH access, and a custom MOTD. It's hosted in Sydney.
 
-Original Ask
+### Original Ask
 ```
 Create an Ubuntu 16.04 server
 Enable SSH login
@@ -63,22 +63,22 @@ ssh ubuntu@`terraform output |awk '{print $3}'`
 
 The last line of the MOTD should be "Hello Assurity DevOps"
 
-### Additional Options
+## Additional Options
 
 This solution used the most direct method of satisfying requirements. There are other ways to solve this, and similar challenges.
 
-## Option 1
+### Option 1
 
 In a more complicated setup, we could have added variables to allow people to specify the region they want to connect to, and pull the AMI automatically.
 
-## Option 2
+### Option 2
 
 Use a template, instead of a script, for the MOTD
 
-## Option 3
+### Option 3
 
 Use a static file for the MOTD, and simply copy it from the executing system to the remote system
 
-## Option 4
+### Option 4
 
 In a more complicated environment, puppet, ansible, or AWS Config could be used to ensure that the MOTD change is correct, and that anything else which needs to be done is also done. As a single step process, it's easier to validate manually than to add a test framework to ensure that everything works.
