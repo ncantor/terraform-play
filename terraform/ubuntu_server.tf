@@ -24,4 +24,5 @@ resource "aws_instance" "play" {
   instance_type = "t2.micro"
   security_groups = ["allow_ssh"]
   key_name = "play-key"
+  user_data = "${file("motd.tpl")}"
 }
